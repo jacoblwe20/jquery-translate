@@ -4,7 +4,7 @@ I hate how no one uses CSS3 animations when using jQuery cause the damn animate 
 
 ```javascript
 $(ele).translate({
-	x : "10px",
+	x : "10px", // at current version this has to be a string with unit
 	y : "10px",
 	duration : 500
 })
