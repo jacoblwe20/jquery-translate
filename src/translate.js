@@ -24,8 +24,8 @@
 
       return null;
     };
-    this.transform = this.prefix("transform");
     this.transition = this.prefix("transition");
+    this.transform = (this.transition) ? this.prefix("transform") : null;
     this.mover = (this.transition) ? "css" : "animate";
     this.prefixed = (this.transition) ? 
       "-" + this.transform.split(/tran/i).join("-tran").toLowerCase() : 
@@ -53,8 +53,8 @@
         // falling back
         this.transform : 
         (options.fallback === "tlbr") ?
-        "top" :
-        "margin-top"
+        "left" :
+        "margin-left"
       ] = ( (this.transform) ? "translate(" : "" ) + options.x;
 
       // setting y value
@@ -62,8 +62,8 @@
         obj[this.transform] +=  ", " + options.y + ")";
       } else {
         obj[(options.fallback === "tlbr") ?
-          "left" :
-          "margin-left"
+          "top" :
+          "margin-top"
         ] = options.y;
       }
 
