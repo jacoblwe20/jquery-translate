@@ -77,15 +77,19 @@
 
     if(context && context() instanceof jQuery){
       var that = this;
-      return function(options){
-        var ele = $(this);
-        var css = that.Css(options);
-        var obj = {};
-        ele[that.mover](css, options.duration);
-        setTimeout(function(){
-          obj[that.transition] = "none";
-          ele.css(obj);
-        }, options.duration);
+      return function( options ){
+
+        var ele = $(this),
+          css = that.Css(options),
+          obj = {};
+
+        ele[that.mover](css, options.duration)
+          .one(
+            "transitionend MSTransitionEnd webkitTransitionEnd oTransitionEnd",
+            function ( ) {
+              obj[that.transition] = "none";
+              ele.css(obj);
+          });
         return this;
       };
     }
