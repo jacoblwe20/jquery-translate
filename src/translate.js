@@ -79,16 +79,26 @@
       var that = this;
       return function( options ){
 
+        if ( 'number' === typeof arguments[1] ) {
+          options.duration = arguments[1];
+        }
+
         var ele = $(this),
           css = that.Css(options),
+          callback,
           obj = {};
 
-        ele[that.mover](css, options.duration)
+        if ( 'function' === typeof arguments[2] ) {
+          callback = arguments[2];
+        }
+
+        ele[that.mover](css, options.duration, callback)
           .one(
             "transitionend MSTransitionEnd webkitTransitionEnd oTransitionEnd",
             function ( ) {
               obj[that.transition] = "none";
               ele.css(obj);
+              if ( callback ) callback( );
           });
         return this;
       };
