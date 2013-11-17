@@ -16,6 +16,7 @@ $( ele ).translate(
 		console.log( 'Animation Done' )
 	}
 );
+```
 
 callback after animation, this is a callback that will fire after the animation has ran.
 
