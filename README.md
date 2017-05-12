@@ -1,5 +1,7 @@
 ## jQuery Translate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jcblw/jquery-translate.svg)](https://greenkeeper.io/)
+
 I hate how no one uses CSS3 animations when using jQuery cause the damn `animate` method is so easy to just throw stuff at and have it work cross browser. But why dumb down modern browsers with TLBR stuff. Lets move the web forward.
 
 ## Usage
